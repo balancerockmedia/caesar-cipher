@@ -6,8 +6,8 @@ class Caesar {
     
     public function encode($orig_string, $shift) {
         $new_string = '';
-    	$string = str_split($orig_string, 1);
-    	foreach($string as $item) {
+    	$orig_string = str_split($orig_string, 1);
+    	foreach($orig_string as $item) {
     		$index = strpos($this->char_set, $item);
 
     		if (($index + $shift) >= strlen($this->char_set)) {
@@ -23,8 +23,8 @@ class Caesar {
     
     public function decode($orig_string, $shift) {
         $new_string = '';
-        $string = str_split($orig_string, 1);
-        foreach($string as $item) {
+        $orig_string = str_split($orig_string, 1);
+        foreach($orig_string as $item) {
     		$index = strpos($this->char_set, $item);
 
     		if (($index - $shift) < 0) {
