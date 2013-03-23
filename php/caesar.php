@@ -6,39 +6,39 @@ class Caesar {
     
     public function encode($orig_string, $shift) {
         $new_string = '';
-    	$orig_string = str_split($orig_string, 1);
-    	foreach($orig_string as $item) {
-    		$index = strpos($this->char_set, $item);
+        $orig_string = str_split($orig_string, 1);
+        foreach($orig_string as $item) {
+            $index = strpos($this->char_set, $item);
 
-    		if (($index + $shift) >= strlen($this->char_set)) {
-    			$index = ($index + $shift) - strlen($this->char_set);
-    		} else {
-    			$index += $shift;
-    		}
+            if (($index + $shift) >= strlen($this->char_set)) {
+                $index = ($index + $shift) - strlen($this->char_set);
+            } else {
+                $index += $shift;
+            }
 
-    		$new_string .= $this->char_set{$index};
-    	}
-    	return $new_string;
+            $new_string .= $this->char_set{$index};
+        }
+        return $new_string;
     }
     
     public function decode($orig_string, $shift) {
         $new_string = '';
         $orig_string = str_split($orig_string, 1);
         foreach($orig_string as $item) {
-    		$index = strpos($this->char_set, $item);
+            $index = strpos($this->char_set, $item);
 
-    		if (($index - $shift) < 0) {
-    			$index = ($index - $shift) + strlen($this->char_set);
-    		} else if (($index - $shift) == 0) { 
-    		    $index = 0;
-    		} else {
-    			$index -= $shift;
-    		}
+            if (($index - $shift) < 0) {
+                $index = ($index - $shift) + strlen($this->char_set);
+            } else if (($index - $shift) == 0) { 
+                $index = 0;
+            } else {
+                $index -= $shift;
+            }
 
-    		$new_string .= $this->char_set{$index};
-    	}
-    	
-    	return $new_string;
+            $new_string .= $this->char_set{$index};
+        }
+        
+        return $new_string;
     }
 }
 
